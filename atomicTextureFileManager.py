@@ -8,7 +8,7 @@ from functools import partial
 import subprocess, glob, re
 
 __author__ = 'Adam Benson'
-__version__ = '1.0.5'
+__version__ = '1.0.6'
 
 '''
     This is the new and improved Texture File Manager!  Here are a list of features coming up in version 1.1.0
@@ -40,6 +40,8 @@ __version__ = '1.0.5'
     3. In these versions I am going to be integrating the UI into the main file.  This will make distribution easier.
     4. This version is getting a new UI.  I'm streamlining the user interface, swapping radio buttons for action
         buttons.  I'm also getting rid of the options roll down, and replacing it with
+
+    This has now been added to the GitHub repository
 '''
 
 
