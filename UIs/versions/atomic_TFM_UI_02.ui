@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>atomicTextureFileManager</class>
+ <widget class="QMainWindow" name="atomicTextureFileManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1144</width>
+    <height>930</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1144</width>
+    <height>889</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>896</width>
+     <height>858</height>
+    </size>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="minimumSize">
+       <size>
+        <width>1118</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="filesTab">
+       <attribute name="title">
+        <string>Files</string>
+       </attribute>
+       <widget class="QFrame" name="TextureLists">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1111</width>
+          <height>851</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1111</width>
+          <height>851</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>351</width>
+           <height>461</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="existingTextureGrid">
+          <item row="0" column="0">
+           <widget class="QLabel" name="existingTextureLabel">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Existing Textures&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QListWidget" name="existingTextureList">
+            <property name="tabKeyNavigation">
+             <bool>true</bool>
+            </property>
+            <property name="dragEnabled">
+             <bool>true</bool>
+            </property>
+            <property name="dragDropOverwriteMode">
+             <bool>true</bool>
+            </property>
+            <property name="dragDropMode">
+             <enum>QAbstractItemView::DragOnly</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>740</x>
+           <y>30</y>
+           <width>351</width>
+           <height>461</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="missingTexturesGrid">
+          <item row="0" column="0">
+           <widget class="QLabel" name="missingTexturesLabel">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Missing Textures&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QListWidget" name="missingTexturesList">
+            <property name="tabKeyNavigation">
+             <bool>true</bool>
+            </property>
+            <property name="dragEnabled">
+             <bool>true</bool>
+            </property>
+            <property name="dragDropOverwriteMode">
+             <bool>true</bool>
+            </property>
+            <property name="dragDropMode">
+             <enum>QAbstractItemView::DragOnly</enum>
+            </property>
+            <property name="defaultDropAction">
+             <enum>Qt::IgnoreAction</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>500</y>
+           <width>316</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="autoManualButtons">
+          <item>
+           <widget class="QRadioButton" name="automaticSourceRdoBtn">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string>Automatic Source</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="manualSourceRdoBtn">
+            <property name="text">
+             <string>Manual Source</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QCheckBox" name="keepOriginalSubfolders">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>750</y>
+           <width>221</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Keep Original Subfolders</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>570</y>
+           <width>1061</width>
+           <height>36</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Move Files From</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="browseOriginBtn">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="originText">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>Manual Origin Folder</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>650</y>
+           <width>1061</width>
+           <height>36</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Source Images   </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="browseSourceBtn">
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="sourceText">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>Source Images Folder</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>710</y>
+           <width>807</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="actionTypeSelectionLayout">
+          <item>
+           <widget class="QRadioButton" name="copyToSrcImgs">
+            <property name="text">
+             <string>Copy to sourceimages</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="moveToSrcImgs">
+            <property name="text">
+             <string>Move to sourceimages</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="missingFileSearch">
+            <property name="text">
+             <string>Attempt Missing File Search</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="consolodateAll">
+            <property name="text">
+             <string>Consolidate All</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>30</y>
+           <width>351</width>
+           <height>461</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="inSourceGrid">
+          <item row="0" column="0">
+           <widget class="QLabel" name="inSourceImagesLabel">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;In sourceimages&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QListWidget" name="inSourceImagesList">
+            <property name="acceptDrops">
+             <bool>true</bool>
+            </property>
+            <property name="tabKeyNavigation">
+             <bool>true</bool>
+            </property>
+            <property name="dragDropOverwriteMode">
+             <bool>true</bool>
+            </property>
+            <property name="dragDropMode">
+             <enum>QAbstractItemView::DropOnly</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QCheckBox" name="updatePath">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>750</y>
+           <width>201</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Update Path on Run</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>760</x>
+           <y>770</y>
+           <width>331</width>
+           <height>36</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="actionButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="cancel">
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="text">
+             <string>Close</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="run">
+            <property name="text">
+             <string>Run Operation</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="toolsTab">
+       <attribute name="title">
+        <string>Tools</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="settingsTab">
+       <attribute name="title">
+        <string>Settings</string>
+       </attribute>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>1071</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>USE WITH CAUTION!!
+
+These settings will affect the way this tool runs!  It was designed to be expandable, and uses an xml document to keep a list of acceptable image types.  Some are inserted by default, but the list can be expanded upon by you.
+It is important to understand that changing this list will directly affect this tool's ability to preform.  Make sure you understand what you are doing before you hit save!</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>260</y>
+          <width>581</width>
+          <height>591</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Accepted Nodes</string>
+           </property>
+           <property name="buddy">
+            <cstring>nodeTypesList</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="nodeTypesList">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="rowCount">
+            <number>0</number>
+           </property>
+           <property name="columnCount">
+            <number>3</number>
+           </property>
+           <attribute name="horizontalHeaderCascadingSectionResizes">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="horizontalHeaderDefaultSectionSize">
+            <number>125</number>
+           </attribute>
+           <attribute name="horizontalHeaderMinimumSectionSize">
+            <number>125</number>
+           </attribute>
+           <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderCascadingSectionResizes">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="verticalHeaderHighlightSections">
+            <bool>true</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>nodeType</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>parameterName</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>nodeType</string>
+             </property>
+             <property name="buddy">
+              <cstring>newNodeType</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>parameterName</string>
+             </property>
+             <property name="buddy">
+              <cstring>newParameterName</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="newNodeType"/>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QLineEdit" name="newParameterName"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="addNodeType">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>180</y>
+          <width>1091</width>
+          <height>59</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>XML File Location</string>
+           </property>
+           <property name="buddy">
+            <cstring>xmlLocation</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="xmlLocation">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionCopy_Selected_To_Source">
+   <property name="text">
+    <string>Copy Selected To Source</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="text">
+    <string>Reset</string>
+   </property>
+  </action>
+  <action name="actionMove_Selected_To_Source">
+   <property name="text">
+    <string>Move Selected To Source</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>copyToSrcImgs</tabstop>
+  <tabstop>moveToSrcImgs</tabstop>
+  <tabstop>missingFileSearch</tabstop>
+  <tabstop>consolodateAll</tabstop>
+  <tabstop>browseSourceBtn</tabstop>
+  <tabstop>sourceText</tabstop>
+  <tabstop>run</tabstop>
+  <tabstop>cancel</tabstop>
+  <tabstop>automaticSourceRdoBtn</tabstop>
+  <tabstop>manualSourceRdoBtn</tabstop>
+  <tabstop>missingTexturesList</tabstop>
+  <tabstop>keepOriginalSubfolders</tabstop>
+  <tabstop>browseOriginBtn</tabstop>
+  <tabstop>originText</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>manualSourceRdoBtn</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>browseOriginBtn</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>593</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>86</x>
+     <y>639</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>manualSourceRdoBtn</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>originText</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>587</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>644</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>automaticSourceRdoBtn</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>browseOriginBtn</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>583</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>637</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>automaticSourceRdoBtn</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>originText</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>106</x>
+     <y>586</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>209</x>
+     <y>635</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
