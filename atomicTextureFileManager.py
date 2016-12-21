@@ -602,7 +602,7 @@ class atomicTextureFileManager(QtGui.QMainWindow):
     def getSelectedItems(self, fileList):
         print 'FileList:', fileList
         getSelection = self.ui.existingTextureList.selectedItems()
-        print 'getSelection:', getSelection[0]
+        # print 'getSelection:', getSelection[0]
         selectedFileList = {}
         if getSelection:
             total = len(getSelection)
@@ -670,6 +670,12 @@ class atomicTextureFileManager(QtGui.QMainWindow):
                 # Duh, of course they are.  So, I need to get the object default folder.
                 if folder in optionsList:
                     if '/' in path:
+                        # ALERT!!! This split path is what is currently breaking the copy feature.
+                        # The problem:
+                        #   Because our default textures folder is /publish/textures, then the split path breaks those up and catalogs them inapprorpiately under the "Keep subfolders" loop.
+                        #   I think the solution will be to pre-split the path with the default folder: path.split('/publish/textures').
+                        #   Then I should be able to split the path to keep the rest of the hierarchy.
+                        # This may also cause issues down the line with the way other paths are searched, or it may actually improve some problems.
                         splitPath = path.split('/')
                         print 'forward slash split path found'
                     elif '\\' in path:
@@ -787,6 +793,12 @@ class atomicTextureFileManager(QtGui.QMainWindow):
         self.resetFileTrees()
 
     def copyAction(self, mode, src, dest, path):
+        print '-------------------------------------------------------------'
+        print mode
+        print src
+        print dest
+        print path
+        print '-------------------------------------------------------------'
         if mode == 'copy':
             shutil.copy2(src, dest)
             print '%s copied successfully!' % path
