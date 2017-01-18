@@ -637,6 +637,7 @@ class atomicTextureFileManager(QtGui.QMainWindow):
         return fileCollection
 
     def optionsList(self):
+        # This cycles through the selection types option box, since the options are created dynamically.
         options = []
         for check in self.checkBoxList:
             if check.isChecked():
@@ -647,6 +648,9 @@ class atomicTextureFileManager(QtGui.QMainWindow):
         # I think I need to change the parameters above to the **kwargs in order to take more limited suggestions
         # Although, I know I'm still going to need some of this info, so it might be better to pass it to the
         # findFilesOnComputer.
+
+        # Update:  I'm a little uncertain as to what my above note is about.
+
         update = 0
         selectedFileList = self.getSelectedItems(fileList)
         # I am temporarily disabling the Progress Bar until I get it working.  For version 1, I will use a print out of
